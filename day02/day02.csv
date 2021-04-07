@@ -1,0 +1,23 @@
+﻿type,sex,percent
+Population,female,0.5
+Prisoners,female,0.07
+Directors of Australian Films,female,0.16
+Music royalties paid,female,0.17
+CEOs,female,0.18
+Boardrooms,female,0.28
+Sportspersons,female,0.3
+Parliament,female,0.37
+Commonweath Justices and Judges,female,0.37
+Primary carer,female,0.72
+Primary parental leave takers,female,0.94
+Population,male,0.5
+Prisoners,male,0.93
+Directors of Australian Films,male,0.84
+Music royalties paid,male,0.83
+CEOs,male,0.82
+Boardrooms,male,0.72
+Sportspersons,male,0.7
+Parliament,male,0.63
+Commonweath Justices and Judges,male,0.63
+Primary carer,male,0.28
+Primary parental leave takers,male,0.07

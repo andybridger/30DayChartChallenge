@@ -9,7 +9,7 @@ library(ggalt)
 library(tidyr)
 
 ###load data###
-d_edu <- read_csv("data/day25.csv")
+d_edu <- read_csv("data/day27.csv")
 str(d_edu)
 
 ###load colours###

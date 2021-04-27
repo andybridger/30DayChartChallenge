@@ -5,7 +5,7 @@ if(!require('pacman')) install.packages('pacman')
 pacman::p_load(tidyverse, ggplot2, gganimate, gifski, kableExtra, ggpol)
 
 #download data from github
-urlfile <- "https://raw.githubusercontent.com/andybridger/animations/main/data/aus_pop.csv?token=AQQH5KRLNKC7NJAVRHE5Y4TACE326"
+urlfile <- "https://github.com/andybridger/30DayChartChallenge/blob/main/day25/aus_pop.csv"
 aus_pop <- read.csv(url(urlfile), check.names = FALSE)
 
 #check column names

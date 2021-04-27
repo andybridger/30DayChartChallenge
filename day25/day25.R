@@ -1,4 +1,4 @@
-#code largely copied from @SiphuLangeni
+#code from @SiphuLangeni
 
 #load required packages
 if(!require('pacman')) install.packages('pacman')

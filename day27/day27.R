@@ -162,9 +162,10 @@ ch_edu <- ggplot(data=d_edu, aes(x = Women, xend = Men, y = reorder(Education,-d
   aig_style()+
   scale_x_continuous(limit=c(27,63))+
   labs(title = "The gender pay gap is evident across all education levels except
-those without non-school qualifications",
+those with no post-school qualifications",
        subtitle = "Median hourly earnings ($A) in main job by sex and education, August 2020",
-       caption = 'Note: ndf. is not further defined')+
+       x = "$A per hour",
+       caption = 'Note: No post-school qualification includes those that finished school and finished school early. This classication is commonly called\n"Without non-school qualifications" by the ABS.')+
   geom_text(data=filter(d_edu, Education=="Postgraduate degree"),
           aes(x=Women, y=Education, label="Women"),
           colour=aig_red, size = 4, vjust = -1.0, fontface="bold")+

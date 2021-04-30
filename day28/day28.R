@@ -66,7 +66,7 @@ ch_oecd
 
 #this function also comes from aigtheme and it based of the saving function from the BBC
 finalise_plot(plot_name = ch_oecd,
-              source = "Source: OECD, Interim Economic Outlook, March 2021",
+              source = "#30DayChartChallenge | Viz: @AndyBridger | Data: OECD, Interim Economic Outlook, March 2021",
               save_filepath = "...charts/day28.png",
               width_pixels = 640,
               height_pixels = 450,

@@ -79,7 +79,7 @@
 
   Timeseries | Upwards
   
-   ![](https://github.com/andybridger/30DayChartChallenge/blob/main/day13/day13.png?raw=true)
+   ![](https://github.com/andybridger/30DayChartChallenge/blob/main/day20/day20.png?raw=true)
 
 - **Day 21:**
 

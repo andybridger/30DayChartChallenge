@@ -72,14 +72,20 @@
 - **Day 19:**
 
   Timeseries | Global change
+  
+   ![](https://github.com/andybridger/30DayChartChallenge/blob/main/day13/day13.png?raw=true)
 
 - **Day 20:**
 
   Timeseries | Upwards
+  
+   ![](https://github.com/andybridger/30DayChartChallenge/blob/main/day13/day13.png?raw=true)
 
 - **Day 21:**
 
-  Timeseries | Dpwnwards
+  Timeseries | Downwards
+  
+   ![](https://github.com/andybridger/30DayChartChallenge/blob/main/day13/day13.png?raw=true)
   
 - **Day 22:**
 
@@ -114,3 +120,5 @@
 - **Day 30:**
 
   Timeseries | 3D
+
+![](https://github.com/andybridger/30DayChartChallenge/blob/main/day30/day30.gif?raw=true)

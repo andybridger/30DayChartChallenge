@@ -85,7 +85,7 @@
 
   Timeseries | Downwards
   
-   ![](https://github.com/andybridger/30DayChartChallenge/blob/main/day13/day13.png?raw=true)
+   ![](https://github.com/andybridger/30DayChartChallenge/blob/main/day21/day21.png?raw=true)
   
 - **Day 22:**
 

@@ -53,10 +53,6 @@
 
   ![](https://github.com/andybridger/30DayChartChallenge/blob/main/day09/day09.png?raw=true)
   
-- **Day 11:**
-
-  Relationships | Circular
-  
 - **Day 12:**
 
   Relationships | Strips

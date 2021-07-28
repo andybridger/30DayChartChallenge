@@ -1,6 +1,5 @@
 # 30DayChartChallenge
 #30DayChartChallenge
-30 Day Chart Challenge
 
 - **Day 1** 
 

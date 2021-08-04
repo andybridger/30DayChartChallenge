@@ -1,18 +1,26 @@
-# load libraries ----
-library(data.table)
-library(tidyverse)
-library(readxl)
-library(ggplot2)
+#30DayChartChallenge 
+#Day 20 | upwards
+#Viz: @AndyBridger
 
+#download packages if needed
+list.of.packages <- c('ggplot2', 'data.table', 'tidyverse', 'readxl')
+new.packages <- list.of.packages[!(list.of.packages %in% installed.packages()[,"Package"])]
+if(length(new.packages)) install.packages(new.packages)
+
+#load packages
+lapply(c('ggplot2', 'data.table', 'tidyverse', 'readxl'), require, character.only = TRUE)
+
+# load devtools for aigtheme
 install.packages("devtools")
 library(devtools)
+#load aigtheme
+devtools::install_github("andybridger/aigtheme")
 library(aigtheme)
 
-install_github('andybridger/aigtheme')
-
-#load data
-d_ret <- read_csv("data/retail_therapy.csv")
-str(d_ret)
+# load data
+urlfile="https://raw.githubusercontent.com/andybridger/30DayChartChallenge/main/day20/day20.csv"
+d_ret <-read_csv(url(urlfile))
+View(d_ret)
 
 d_ret <- d_ret %>%
   mutate(retail = retail/1000) 
@@ -44,10 +52,12 @@ ch_retail
 
 finalise_plot(plot_name = ch_retail,
               source = "Source: Australian Bureau of Statistics",
-              save_filepath = "/Users/andrewbridger/Desktop/R/abs/charts/ch_retail.png",
+              #file path to save chart
+              save_filepath = "...day20.png",
               width_pixels = 640,
               height_pixels = 450,
-              logo_image_path = "/Users/andrewbridger/Desktop/R/abs/charts/aig_logo.png")
+              #file path to logo in bottom right corner
+              logo_image_path = "...aig_logo.png")
 
 
 

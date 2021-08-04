@@ -9,8 +9,10 @@ library(ggalt)
 library(tidyr)
 
 ###load data###
-d_edu <- read_csv("data/day27.csv")
-str(d_edu)
+# load data
+urlfile="https://raw.githubusercontent.com/andybridger/30DayChartChallenge/main/day27/day27.csv"
+d_edu <-read_csv(url(urlfile))
+str(d_oecd)
 
 ###load colours###
 aig_blue <- "#1a698a"

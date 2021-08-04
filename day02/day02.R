@@ -143,7 +143,6 @@ Viz: @AndyBridger | #30DayChartChallenge") &
           plot.caption = element_text(family = "Arial", size = 8, color = 'black', hjust = 0.5),
           legend.position="bottom", legend.title = element_blank())
 my_plot
-# save image
+#save image
 #You will need to assign your own file path here
 ggsave("charts/day02.png", my_plot, height = 11, width = 6)
-

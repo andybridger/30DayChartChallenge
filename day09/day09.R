@@ -1,14 +1,22 @@
-# load libraries ----
-library(data.table)
-library(tidyverse)
-library(readxl)
-library(ggplot2)
-library(aigtheme)
-library(ggpubr)
-library(gridExtra)
-library(scales)
+#30DayChartChallenge 
+#Day 9 | statistics
+#Viz: @AndyBridger
 
-#load datasets
+#download packages if needed
+list.of.packages <- c('dplyr', 'ggplot2', 'readxl', 'ggpubr',
+                      'gridExtra', 'tidyverse', ' scales', 'data.table', 'devtools')
+new.packages <- list.of.packages[!(list.of.packages %in% installed.packages()[,"Package"])]
+if(length(new.packages)) install.packages(new.packages)
+
+#load packages
+lapply(c('dplyr', 'ggplot2', 'readxl', 'ggpubr',
+         'gridExtra', 'tidyverse', ' scales', 'data.table', 'devtools'), require, character.only = TRUE)
+
+#load aigtheme
+devtools::install_github("andybridger/aigtheme")
+library(aigtheme)
+
+#load datasets: this data is proprietary therefore I have not included the raw data on GitHub
 d_gfc <- read_csv("data/ps_gfc.csv")
 d_covid <- read_csv("data/ps_covid.csv")
 
@@ -22,6 +30,7 @@ ch_gfc <- ggplot(data=d_gfc, aes(x = date)) +
   geom_line(aes(y=PSI_GFC),size = 1, color = "#1ab0d4")+
   geom_line(aes(y=PCI_GFC),size = 1, color = "#663882")+
   aig_style()+
+  theme(panel.border = element_blank())+
   aig_y_continuous(limits=c(20,65),breaks = seq(20,65, by = 10))+
   scale_x_date(limit=c(as.Date("2008-01-01"),as.Date("2009-12-30")),
                date_breaks = ("1 year"),labels = date_format("%Y"))+
@@ -58,7 +67,8 @@ ch_covid <- ggplot(data=d_covid, aes(x = date)) +
   scale_x_date(limit=c(as.Date("2020-01-01"),as.Date("2021-12-30")),
                date_breaks = ("1 year"), labels = date_format("%Y"))+
   geom_hline(yintercept=50, linetype="dashed", color = "red")+
-  theme(axis.text.y=element_blank())+
+  theme(axis.text.y=element_blank(),
+        panel.border = element_blank())+
   geom_label(aes(x=as.Date("2021-10-01"), y=55, label = "Sector expanding
 (over 50 points)"),
              size = 3,
@@ -78,7 +88,7 @@ ch_covid <- ggplot(data=d_covid, aes(x = date)) +
              fill = "#1a698a")
 ch_covid
 
-#using ggarrange to make plots side by side
+###using ggarrange to make plots side by side
 ch_ps <- ggarrange(ch_gfc, ch_covid, ncol=2, nrow=1)
 ch_ps
 
@@ -92,7 +102,9 @@ ch_ps_title<- ch_ps +
 #use finalise plot function from aig_theme on my github
 finalise_plot(plot_name = ch_ps_title,
               source = "Source: Ai Group",
-              save_filepath = "..day09.png",
+              #file path to save image
+              save_filepath = "charts/day09_1.png",
               width_pixels = 640,
               height_pixels = 450,
-              logo_image_path = "[logopath]...aig_logo.png")
+              #agg your logo
+              logo_image_path = "/Users/andrewbridger/Desktop/R/abs/charts/aig_logo.png")

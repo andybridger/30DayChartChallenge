@@ -1,24 +1,21 @@
-#day08
-#load libraries but you probably do not need them all (I experimented a lot)
-library(magick)
-library(png)
-library(dplyr)
-library(cowplot)
-library(tidyverse)
-library(readxl)
-library(ggplot2)
-library(zoo)
-library(tidyverse)
-library(lubridate)
-library(gganimate)
-library(data.table)
-library(dplyr)
-library(aigtheme)
-library(ggimage)
+#30DayChartChallenge 
+#Day 8 | animal
+#Viz: @AndyBridger
 
-#load data
-d_nz <- read_csv("data/day08.csv")
-str(d_nz)
+#download packages if needed
+list.of.packages <- c('magick', 'png', 'dplyr', 'cowplot', 'ggplot2', 'readxl',
+                      'zoo', 'lubridate', 'tidyverse', ' ggimage', 'data.table')
+new.packages <- list.of.packages[!(list.of.packages %in% installed.packages()[,"Package"])]
+if(length(new.packages)) install.packages(new.packages)
+
+#load packages
+lapply(c('magick', 'png', 'dplyr', 'cowplot', 'ggplot2', 'readxl',
+         'zoo', 'lubridate', 'tidyverse', ' ggimage', 'data.table'), require, character.only = TRUE)
+
+# load chocolate export data
+urlfile="https://raw.githubusercontent.com/andybridger/30DayChartChallenge/main/day08/day08.csv"
+d_nz <-read_csv(url(urlfile))
+View(d_nz)
 
 #linearly interpolate missing data
 d_nz <- d_nz %>%
@@ -70,6 +67,7 @@ moo_style <- function() {
     panel.grid.minor = ggplot2::element_blank(),
     panel.grid.major.y = ggplot2::element_line(color="#dcdcdc"),
     panel.grid.major.x = ggplot2::element_blank(),
+    panel.border = ggplot2::element_blank(),
     
     #Blank background
     #This sets the panel background as blank, removing the standard grey ggplot background colour from the plot
@@ -120,8 +118,6 @@ ggsave('charts/day08.png',
        scale = 3,
        units = 'cm')
 
-
-
 #####number chart
 ch_animal <- ggplot(data=d_nz, aes(x = year, y = mn, group = animal, color = animal)) +
   geom_line()+
@@ -158,3 +154,6 @@ ggsave('charts/day08_number.png',
        height = 4.5,
        scale = 3,
        units = 'cm')
+
+
+

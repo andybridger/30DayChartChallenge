@@ -1,6 +1,3 @@
-#Attempted to do this chart in R but failed so went back to excel.
-#Insert line chart in R and insert line to indicate time break on the x-axis
-
 # load libraries ----
 library(data.table)
 library(tidyverse)
@@ -21,3 +18,5 @@ ch_int <- ggplot(data=d_int, aes(x = year)) +
   labs(title = "5000 years of interest rates",
        subtitle = "Short-term and long-term interest rates (%)",
        caption = "Note: insert note")
+
+

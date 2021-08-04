@@ -1,18 +1,29 @@
+#30DayChartChallenge 
+#Day 4 | magical
+#Viz: @AndyBridger
+#Inspiration for glowing chart: @lenkiefer
+
+#download packages if needed
+list.of.packages <- c("ggplot2", "readxl", 'data.table', 'ggfx', 'tidyverse',
+                      'readr')
+new.packages <- list.of.packages[!(list.of.packages %in% installed.packages()[,"Package"])]
+if(length(new.packages)) install.packages(new.packages)
+
+#load packages
+lapply(c("ggplot2", "readxl", 'data.table', 'ggfx', 'tidyverse',
+         'readr'), require, character.only = TRUE)
+
+# load chocolate export data
+urlfile="https://raw.githubusercontent.com/andybridger/30DayChartChallenge/main/day04/day04.csv"
+d_choccy <-read_csv(url(urlfile))
+View(d_choccy)
+
 # load libraries ----
-library(data.table)
-library(tidyverse)
-library(readxl)
-library(ggplot2)
+devtools::install_github("andybridger/aigtheme")
 library(aigtheme)
 devtools::install_github("lenkiefer/darklyplot")
-library(ggfx)
 library(darklyplot)
 
-
-#load data
-d_choccy <- read_csv("data/day04.csv")
-str(d_choccy)
-view(d_choccy)
 
 #make chart
 ch_choccy <- ggplot(data=d_choccy, aes(x = date, y = mn, group =1)) +
@@ -24,14 +35,16 @@ ch_choccy <- ggplot(data=d_choccy, aes(x = date, y = mn, group =1)) +
   labs(title = "Happy Easter! Australian chocolate exports hit a record high of
 $338 million in 2020",
        subtitle = "Australian chocolate exports (A$mn), 12-month rolling sum",
-       caption = "Viz: @AndyBridger | Inspiration: @lenkiefer | Data: Australian Bureau of Statistics
-Note: Data are SITC code 073 - 'Chocolate and other food preparations containing cocoa,
-not elsewhere specified.'")
+       caption = "
+Viz: @AndyBridger | Inspiration: @lenkiefer | Data: Australian Bureau of Statistics
+Note: Data are SITC code 073 - 'Chocolate and other food preparations containing cocoa, not elsewhere specified.'")
 ch_choccy
 
 #save plot
-ggsave('...charts/day04.png',
+ggsave('charts/day04.png',
        width = 6.4,
        height = 4.5,
        scale = 3,
        units = 'cm')
+
+

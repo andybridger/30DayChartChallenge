@@ -1,21 +1,28 @@
-#30DayChartChallenge
-#day28 | uncertainties - future
+#30DayChartChallenge 
+#Day 28 | future
+#Viz: @AndyBridger
 #OECD forecasts from March 2021 Interim Outlook
 
-# load libraries ----
-library(data.table)
-library(tidyverse)
-library(readxl)
-library(ggplot2)
+#download packages if needed
+list.of.packages <- c('ggplot2', 'data.table', 'tidyverse', 'readxl')
+new.packages <- list.of.packages[!(list.of.packages %in% installed.packages()[,"Package"])]
+if(length(new.packages)) install.packages(new.packages)
+
+#load packages
+lapply(c('ggplot2', 'data.table', 'tidyverse', 'readxl'), require, character.only = TRUE)
+
+# load devtools for aigtheme
+install.packages("devtools")
+library(devtools)
+#load aigtheme
+devtools::install_github("andybridger/aigtheme")
 library(aigtheme)
 
-#load data
-d_oecd <- read_csv("...data/day28.csv")
-#look at the data
+# load data
+urlfile="https://raw.githubusercontent.com/andybridger/30DayChartChallenge/main/day28/day28.csv"
+d_oecd <-read_csv(url(urlfile))
 str(d_oecd)
 view(d_oecd)
-
-aig_lightgrey <- "#dcdcdc"
 
 #plot
 ch_oecd <- ggplot(data=d_oecd, aes(x = date)) +
@@ -63,11 +70,14 @@ geom_label(aes(x=as.Date("2022-08-01"), y=91, label = "Projection period"),
            fill = NA)
 ch_oecd
 
-
 #this function also comes from aigtheme and it based of the saving function from the BBC
 finalise_plot(plot_name = ch_oecd,
               source = "#30DayChartChallenge | Viz: @AndyBridger | Data: OECD, Interim Economic Outlook, March 2021",
+              #file path to save chart
               save_filepath = "...charts/day28.png",
               width_pixels = 640,
               height_pixels = 450,
+              #file path to logo in bottom right corner
               logo_image_path = "yourlogo...charts/aig_logo.png")
+
+

@@ -1,14 +1,26 @@
-# load libraries ----
-library(data.table)
-library(tidyverse)
-library(readxl)
-library(ggplot2)
+#30DayChartChallenge 
+#Day 20 | downwards
+#Viz: @AndyBridger
+
+#download packages if needed
+list.of.packages <- c('ggplot2', 'data.table', 'tidyverse', 'readxl')
+new.packages <- list.of.packages[!(list.of.packages %in% installed.packages()[,"Package"])]
+if(length(new.packages)) install.packages(new.packages)
+
+#load packages
+lapply(c('ggplot2', 'data.table', 'tidyverse', 'readxl'), require, character.only = TRUE)
+
+# load devtools for aigtheme
+install.packages("devtools")
+library(devtools)
+#load aigtheme
+devtools::install_github("andybridger/aigtheme")
 library(aigtheme)
 
-
-d_avi <- read_csv("data/aviation_gdp.csv")
-str(d_avi)
-view(d_avi)
+# load data
+urlfile="https://raw.githubusercontent.com/andybridger/30DayChartChallenge/main/day21/day21.csv"
+d_avi <-read_csv(url(urlfile))
+View(d_avi)
 
 aig_lightgrey <- "#dcdcdc"
 
@@ -45,10 +57,12 @@ ch_avi
 
 finalise_plot(plot_name = ch_avi,
               source = "Source: Australian Bureau of Statistics",
-              save_filepath = "/Users/andrewbridger/Desktop/R/abs/charts/ch_avi.png",
+              #file path to save chart
+              save_filepath = "...day21.png",
               width_pixels = 640,
               height_pixels = 450,
-              logo_image_path = "/Users/andrewbridger/Desktop/R/abs/charts/aig_logo.png")
+              #file path to logo in bottom right corner
+              logo_image_path = "...aig_logo.png")
 
 
 

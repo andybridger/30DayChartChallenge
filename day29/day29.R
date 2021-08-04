@@ -1,15 +1,20 @@
-#day 29 | deviations
-#30DayChartChallenge
+#30DayChartChallenge 
+#Day 29 | deviations
+#Viz: @AndyBridger
 
-# load libraries
-library(tidyverse)
-library(ggplot2)
-library(readxl)
-library(lubridate)
-library(scales)
+#download packages if needed
+list.of.packages <- c('ggplot2', 'lubridate', 'tidyverse', 'readxl', 'scales')
+new.packages <- list.of.packages[!(list.of.packages %in% installed.packages()[,"Package"])]
+if(length(new.packages)) install.packages(new.packages)
+
+#load packages
+lapply(c('ggplot2', 'lubridate', 'tidyverse', 'readxl', 'scales'), require, character.only = TRUE)
 
 #read data
-d_ue <- read.csv("...data/day29.csv")
+# load data
+urlfile="https://raw.githubusercontent.com/andybridger/30DayChartChallenge/main/day29/day29.csv"
+d_ue <-read_csv(url(urlfile))
+str(d_ue)
 
 #import Roboto font
 sysfonts::font_add_google('Roboto')
@@ -28,7 +33,7 @@ ch_ue<-ggplot(d_ue, aes(x = date, y = ue, group = 1))+
   scale_x_date(limit=c(as.Date("2020-01-01"),as.Date("2021-03-01")))+
   labs(title = 'Australian unemployment rate (%) with 95% confidence interval',
        subtitle = 'The Australian unemployment rate comes from the Australian Bureau of Statistics (ABS) Labour Force Survey. This\nis a household survey conducted with about 26,000 households (52,000 people) or 0.32% of the population every\nmonth. Despite plunging household response rates around the world, the ABS reports a response rate of 93% to the\nLabour Force Survey. In contrast, response rates in Britain have fallen from 70% in 2001 to just 43% by 2018.
-\nThe result for Australia is a remarkably accurate picture of the labour market. However, as with any survey data, it\nis subject to sampling error (i.e. because a sample, rather than the entire population, is surveyed). Indeed, the ABS\nare usually only 95% confident the actual unemployment rate is about 0.2 percentage points higher or lower than\nthe headline rate (or central estimate).',
+\nThe result for Australia is a remarkably accurate picture of the labour market. However, as with any survey data, it\nis subject to sampling error (i.e. because a sample, rather than the entire population, is surveyed). Indeed, the ABS\nare usually only 95% confident the actual unemployment rate is about 0.3 percentage points higher or lower than\nthe headline rate (or central estimate).',
        caption = '#30DayChartChallenge | @AndyBridger | Data: Australian Bureau of Statistics') +
   geom_ribbon(data = d_ue,
               aes(x=date,
@@ -54,4 +59,5 @@ ch_ue<-ggplot(d_ue, aes(x = date, y = ue, group = 1))+
   coord_cartesian(clip = 'off')
 
 #save plot
-ggsave('...charts/day29.png', ch_ue, width = 14, height = 12, unit = 'in', dpi = 400)
+ggsave('charts/day29.png', ch_ue, width = 14, height = 12, unit = 'in', dpi = 400)
+

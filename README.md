@@ -1,5 +1,7 @@
 # 30DayChartChallenge
-#30DayChartChallenge
+The #30DayChartChallenge is a data visualisation challenge by [@CedScherer](https://twitter.com/CedScherer) and [@dr_xeo](https://twitter.com/dr_xeo). Anyone is welcome to contribute, no matter which data source or tool you use. I undertook the challenge to improve my R coding skills. Check it out on GitHub: [https://github.com/Z3tt/30DayChartChallenge_Collection2021](https://github.com/z3tt/30DayChartChallenge_Collection2021/blob/main/README.md) or on Twitter: [@30DayChartCall](https://twitter.com/30DayChartChall)
+
+This repository contains the R code used to reproduce my visualisations. You can follow my attempts on Twitter: [@AndyBridger](https://twitter.com/AndyBridger).
 
 - **Day 1** 
 

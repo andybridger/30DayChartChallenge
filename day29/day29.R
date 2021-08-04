@@ -11,7 +11,7 @@ if(length(new.packages)) install.packages(new.packages)
 lapply(c('ggplot2', 'lubridate', 'tidyverse', 'readxl', 'scales'), require, character.only = TRUE)
 
 #read data
-# load data
+#load data
 urlfile="https://raw.githubusercontent.com/andybridger/30DayChartChallenge/main/day29/day29.csv"
 d_ue <-read_csv(url(urlfile))
 str(d_ue)

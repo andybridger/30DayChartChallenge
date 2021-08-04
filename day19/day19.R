@@ -1,26 +1,23 @@
-###WSL###
-#a good tutorial: https://r-spatial.org/r/2018/10/25/ggplot2-sf.html
-#https://github.com/slowkow/ggrepel/issues/89
-#https://stackoverflow.com/questions/50044835/can-geom-label-draw-points-to-a-position-on-a-map/50045289
+#30DayChartChallenge 
+#Day 19 | global change
+#Viz: @AndyBridger
 
-install.packages(c("cowplot", "googleway", "ggplot2", "ggrepel", 
-                   "ggspatial", "libwgeom", "sf", "rnaturalearth", "rnaturalearthdata"))
+#WSL events during COVID-19
 
-library(rnaturalearth)
-library(rnaturalearthdata)
-library(ggrepel)
-library(sf)
-library(ggplot2)
-library(ggmap)
-library(gridExtra)
+#download packages if needed
+list.of.packages <- c("cowplot", "googleway", "ggplot2", "ggrepel", 'ggmap', 'gridExtra',
+                      "ggspatial", "libwgeom", "sf", "rnaturalearth", "rnaturalearthdata")
+new.packages <- list.of.packages[!(list.of.packages %in% installed.packages()[,"Package"])]
+if(length(new.packages)) install.packages(new.packages)
 
-#c(left = 110, bottom = -40, right = 160, top = -10)
+#load packages
+lapply(c("cowplot", "googleway", "ggplot2", "ggrepel", 'ggmap', 'gridExtra',
+         "ggspatial", "libwgeom", "sf", "rnaturalearth", "rnaturalearthdata"), require, character.only = TRUE)
 
 #import Roboto font
 sysfonts::font_add_google('Roboto')
 showtext::showtext_auto()
 showtext::showtext_opts(dpi = 400)
-
 
 # define data frame ensuring lat and lon are numeric vectors
 #2019 data
@@ -114,7 +111,7 @@ ggsave('charts/ch_wsl.png', ch_wsl, width = 8, height = 12, unit = 'in', dpi = 4
 
 
 #############
-#version 2
+#version 2 (black background)
 #############
 # For stamen map, you have to give the extremity of the window you are looking at. here is an example with the watercolor background (Around brisbane)
 map <- get_stamenmap( bbox = c(left = -195, bottom = -58, right = 185, top = 60), zoom = 2, maptype = "watercolor")

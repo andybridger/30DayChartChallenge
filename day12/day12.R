@@ -1,13 +1,19 @@
-#day 12 | distributions | strips
+#30DayChartChallenge 
+#Day 12 | strips
+#Viz: @AndyBridger
 
-#load libraries
-library(tidyverse)
-library(RColorBrewer)
-library(ggplot2)
+#download packages if needed
+list.of.packages <- c('ggplot2', 'RColorBrewer', 'tidyverse')
+new.packages <- list.of.packages[!(list.of.packages %in% installed.packages()[,"Package"])]
+if(length(new.packages)) install.packages(new.packages)
 
-#read data
-d12 <- read_csv("...data/day12.csv")
-str(d12)
+#load packages
+lapply(c('ggplot2', 'RColorBrewer', 'tidyverse'), require, character.only = TRUE)
+
+# load data
+urlfile="https://raw.githubusercontent.com/andybridger/30DayChartChallenge/main/day12/day12.csv"
+d12 <-read_csv(url(urlfile))
+View(d12)
 
 #create the strips
 theme_strip <- theme_minimal()+
@@ -42,6 +48,6 @@ ch12<- ggplot(d12,
 ch12<-ch12+labs(fill="Anomaly [°C]")
 
 #save the plot
-ggsave(plot=ch12, '...charts/day12.png',width=6, height=4, scale = 3, units = 'cm')
+ggsave(plot=ch12, 'charts/day12.png',width=6, height=4, scale = 3, units = 'cm')
 
 

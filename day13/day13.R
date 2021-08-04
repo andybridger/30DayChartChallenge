@@ -1,15 +1,20 @@
-#day13 | relationships - correlations
-#code based off https://github.com/Sarah145/30DayChartChallenge/blob/master/day13/correlation.R
+#30DayChartChallenge 
+#Day 13 | correlations
+#Viz: @AndyBridger
+#code inspired from: https://github.com/Sarah145/30DayChartChallenge/blob/master/day13/correlation.R
 
-#load libraries
-library(tidyverse)
-library(ggrepel)
-library(scales)
-library(ggplot2)
+#download packages if needed
+list.of.packages <- c('ggplot2', "scales", 'ggrepel', 'tidyverse')
+new.packages <- list.of.packages[!(list.of.packages %in% installed.packages()[,"Package"])]
+if(length(new.packages)) install.packages(new.packages)
 
-#load data
-d13<- read_csv("data/day13.csv")
-str(d13)
+#load packages
+lapply(c('ggplot2', "scales", 'ggrepel', 'tidyverse'), require, character.only = TRUE)
+
+# load data
+urlfile="https://raw.githubusercontent.com/andybridger/30DayChartChallenge/main/day13/day13.csv"
+d13 <-read_csv(url(urlfile))
+View(d13)
 
 #import Roboto font
 sysfonts::font_add_google('Roboto')
@@ -35,7 +40,7 @@ ch13 <- ggplot(d13, aes(x = rate, y = wpi)) +
   scale_fill_manual(values = c("#663882", "#1ab0d4")) +
 #add labels and theme
   labs(title = 'The Australian Phillips Curve',
-       subtitle = str_wrap('The Phillips Curve is named after New Zealand Economist, William Phillips, who found an inverse relationship between the level of unemployment and the rate of change in wages. \nIn Australia, wage inflation is more tightly linked to the underutilisation rate than the unemployment rate.', width = 98),
+       subtitle = str_wrap('The Phillips Curve is named after New Zealand Economist, William Phillips, who found an inverse relationship between the level of unemployment and the rate of change in wages. \nIn Australia, wage growth is more tightly linked to the underutilisation rate than the unemployment rate.', width = 98),
        x = '\nSpare Capacity (%)', y = 'Wage growth (% p.a.)\n',
        caption = '@AndyBridger | #30DayChartChallenge \nNote: Underutilisation is a broader measure of spare capacity in the labour market and includes those who are unemployed\nplus those who are underemployed (i.e. looking for more hours).\nData source: Australian Bureau of Statistics') +
   theme_minimal() +
@@ -57,3 +62,4 @@ ch13 <- ggplot(d13, aes(x = rate, y = wpi)) +
 
 #save plot
 ggsave('charts/day13.png', ch13, width = 12.5, height = 12, unit = 'in', dpi = 400)
+

@@ -74,7 +74,7 @@ ch_oecd
 finalise_plot(plot_name = ch_oecd,
               source = "#30DayChartChallenge | Viz: @AndyBridger | Data: OECD, Interim Economic Outlook, March 2021",
               #file path to save chart
-              save_filepath = "...charts/day28.png",
+              save_filepath = "...day28.png",
               width_pixels = 640,
               height_pixels = 450,
               #file path to logo in bottom right corner

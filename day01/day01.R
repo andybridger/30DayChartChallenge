@@ -1,27 +1,23 @@
-install.packages(c('raster','ggtext'))
-install.packages('rgeos')
-install.packages('ggspatial')
-install.packages('rnaturalearth')
-install.packages('sp')
+#30DayChartChallenge 
+#day 1 | part-to-whole
+#inspriation @Amit_Levinson
+#Viz: @AndyBridger
 
-library(sf)
-library(dplyr)
-library(raster)
-library(ggplot2)
-library(ggtext)
-library(glue)
-library(extrafont)
-library(readr)
-# load packages
-library(rgeos)
-library(ggspatial)
+#download packages if needed
+list.of.packages <- c("ggplot2", "sp", 'rnaturalearth','ggspatial','rgeos',
+                      'raster','ggtext', 'sf', 'dplyr', 'glue', 'extrafont',
+                      'readr')
+new.packages <- list.of.packages[!(list.of.packages %in% installed.packages()[,"Package"])]
+if(length(new.packages)) install.packages(new.packages)
 
-# gene world map
-library(rnaturalearth)
-library(sp)
+#load packages
+lapply(c("ggplot2", "sp", 'rnaturalearth','ggspatial','rgeos',
+         'raster','ggtext', 'sf', 'dplyr', 'glue', 'extrafont',
+         'readr'), require, character.only = TRUE)
 
 # load Australia vaccination data
-aus_data <- read_csv("data/day01.csv")
+urlfile="https://raw.githubusercontent.com/andybridger/30DayChartChallenge/main/day01/day01.csv"
+aus_data <-read_csv(url(urlfile))
 View(aus_data)
 
 #load map of Australia
@@ -130,7 +126,11 @@ p <- ggplot(aus_tiles)+
   )
 p
 
-#save chart
+#save chart 
+#You will need to assign your own file path here
 ggsave("charts/day01.png", p, height = 10, width = 15)
+
+
+
 
 

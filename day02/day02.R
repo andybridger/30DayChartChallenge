@@ -1,12 +1,16 @@
-library(waffle)
-library(extrafont)
-library(ggtext)
-library(ggplot2)
-library(dplyr)
-library(tidyverse)
-library(waffle)
-library(readr)
-library(patchwork)
+#30DayChartChallenge 
+#Day 2 | pictogram
+#Viz: @AndyBridger
+
+#download packages if needed
+list.of.packages <- c("ggplot2",'ggtext', 'waffle', 'dplyr', 'tidyverse', 'extrafont',
+                      'readr', 'patchwork')
+new.packages <- list.of.packages[!(list.of.packages %in% installed.packages()[,"Package"])]
+if(length(new.packages)) install.packages(new.packages)
+
+#load packages
+lapply(c("ggplot2",'ggtext', 'waffle', 'dplyr', 'tidyverse', 'extrafont',
+         'readr', 'patchwork'), require, character.only = TRUE)
 
 #failed code to upload pictograms???
 install.packages("remotes")
@@ -27,9 +31,9 @@ write.csv(d,extrafont:::fonttable_file(), row.names = FALSE)
 extrafont::loadfonts()
 
 #load_data
-
-d_pic <- read_csv("data/pictogram_data.csv")
-str(d_pic) 
+urlfile="https://raw.githubusercontent.com/andybridger/30DayChartChallenge/main/day02/day02.csv"
+d_pic <-read_csv(url(urlfile))
+View(d_pic)
 
 #create the 8 waffle charts
 plot_1 <- d_pic %>%
@@ -138,7 +142,8 @@ Viz: @AndyBridger | #30DayChartChallenge") &
     theme(plot.title = element_text(family = "Arial", size = 18, color = 'black', hjust = .5, margin = margin(0,0,0,0,"mm")),
           plot.caption = element_text(family = "Arial", size = 8, color = 'black', hjust = 0.5),
           legend.position="bottom", legend.title = element_blank())
-  
+my_plot
 # save image
+#You will need to assign your own file path here
 ggsave("charts/day02.png", my_plot, height = 11, width = 6)
 

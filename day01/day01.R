@@ -1,7 +1,7 @@
 #30DayChartChallenge 
-#day 1 | part-to-whole
-#inspriation @Amit_Levinson
+#Day 1 | part-to-whole
 #Viz: @AndyBridger
+#Inspiration: @Amit_Levinson
 
 #download packages if needed
 list.of.packages <- c("ggplot2", "sp", 'rnaturalearth','ggspatial','rgeos',

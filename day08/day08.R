@@ -12,7 +12,7 @@ if(length(new.packages)) install.packages(new.packages)
 lapply(c('magick', 'png', 'dplyr', 'cowplot', 'ggplot2', 'readxl',
          'zoo', 'lubridate', 'tidyverse', ' ggimage', 'data.table'), require, character.only = TRUE)
 
-# load chocolate export data
+# load nz data
 urlfile="https://raw.githubusercontent.com/andybridger/30DayChartChallenge/main/day08/day08.csv"
 d_nz <-read_csv(url(urlfile))
 View(d_nz)

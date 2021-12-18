@@ -71,7 +71,7 @@ This repository contains the R code used to reproduce my visualisations. You can
 
   Timeseries | Global change
   
-   ![](https://github.com/andybridger/30DayChartChallenge/blob/main/day19/ch_wsl1.png?raw=true)
+   ![](https://github.com/andybridger/30DayChartChallenge/blob/main/day19/day19.png?raw=true)
 
 - **Day 20:**
 
